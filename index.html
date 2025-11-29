@@ -240,55 +240,31 @@ body{
   </div>
 </section>
 
-<!-- PREMIUM BEFORE & AFTER -->
-<section id="gallery" class="section">
-  <div class="container">
-    <h2>Before & After</h2>
-
-    <div class="ba-grid-premium">
-
-      <!-- ITEM 1 -->
-      <div class="ba-card">
-        <div class="ba-label before">Before</div>
-        <img src="ba1_before.jpg" alt="Before Clean 1">
-        <div class="ba-label after">After</div>
-        <img src="ba1_after.jpg" alt="After Clean 1">
-      </div>
-
-      <!-- ITEM 2 -->
-      <div class="ba-card">
-        <div class="ba-label before">Before</div>
-        <img src="ba2_before.jpg" alt="Before Clean 2">
-        <div class="ba-label after">After</div>
-        <img src="ba2_after.jpg" alt="After Clean 2">
-      </div>
-
-      <!-- ITEM 3 -->
-      <div class="ba-card">
-        <div class="ba-label before">Before</div>
-        <img src="ba3_before.jpg" alt="Before Clean 3">
-        <div class="ba-label after">After</div>
-        <img src="ba3_after.jpg" alt="After Clean 3">
-      </div>
-
-      <!-- ITEM 4 -->
-      <div class="ba-card">
-        <div class="ba-label before">Before</div>
-        <img src="ba4_before.jpg" alt="Before Clean 4">
-        <div class="ba-label after">After</div>
-        <img src="ba4_after.jpg" alt="After Clean 4">
-      </div>
-
-    </div>
-  </div>
-</section>
-
-  /* UNIVERSAL FIX — Prevent oversized images on mobile */
-#gallery img {
+/* BEFORE & AFTER — Perfect mobile sizing */
+#gallery .ba-slide {
   width: 100%;
-  max-height: 420px;     /* adjust height here */
-  object-fit: cover;     /* keeps image neat with full coverage */
-  border-radius: 12px;
+  max-width: 450px;     /* keeps width sensible on iPad/iPhone */
+  margin: 0 auto;
+  border: 3px solid #fff;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #fff;
+}
+
+#gallery .ba-slide img {
+  width: 100%;
+  height: 220px;        /* adjust height here */
+  object-fit: cover;    /* neat crop, no distortion */
+  display: block;
+}
+
+#gallery .ba-label {
+  text-align: center;
+  background: #0f7a37;
+  color: white;
+  padding: 6px 0;
+  font-weight: 700;
+  letter-spacing: 0.5px;
 }
 
 <!-- REVIEWS (Slider Version) -->

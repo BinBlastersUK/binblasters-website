@@ -264,6 +264,57 @@ body{
   </div>
 </section>
 
+  /* BEFORE & AFTER — Clean, safe mobile/desktop sizing */
+.ba-pair img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  display: block;
+}
+
+.ba-slider {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  scroll-snap-type: x mandatory;
+  padding: 20px 0;
+}
+
+.ba-slide {
+  scroll-snap-align: center;
+  flex: 0 0 100%;
+  display: flex;
+  justify-content: center;
+}
+
+@media(min-width: 768px) {
+  .ba-slide { flex: 0 0 70%; }
+}
+
+.ba-pair {
+  max-width: 520px;
+  width: 100%;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  padding: 12px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+@media(min-width: 768px) {
+  .ba-pair { grid-template-columns: 1fr 1fr; }
+}
+
+.ba-label {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.ba-label.before { color: #c0392b; }
+.ba-label.after { color: #0f7a37; }
+
 <!-- REVIEWS (Slider Version) -->
 <section id="reviews" class="section section--tint">
   <div class="container">

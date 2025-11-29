@@ -76,24 +76,48 @@ body{
   overflow-x:auto;
   scroll-snap-type:x mandatory;
   gap:20px;
-  padding:10px 0 4px;
+  padding:14px 0 6px;
 }
 .ba-slide{
-  flex:0 0 85%;
-  background:#fff;
-  border-radius:12px;
-  padding:10px;
-  box-shadow:0 4px 14px #0002;
   scroll-snap-align:center;
+  flex:0 0 100%;
+  display:flex;
+  justify-content:center;
 }
-.ba-slide img{
+@media (min-width:768px){
+  .ba-slide{ flex:0 0 70%; }
+}
+.ba-pair{
   width:100%;
-  height:260px;        /* controls height on mobile & tablet */
-  object-fit:cover;    /* no distortion */
-  display:block;
-  border-radius:10px;
-  margin-bottom:10px;
+  max-width:520px;
+  background:#fff;
+  border-radius:16px;
+  box-shadow:0 6px 18px rgba(0,0,0,0.18);
+  padding:14px;
+  display:grid;
+  grid-template-columns:1fr;
+  gap:12px;
 }
+@media (min-width:768px){
+  .ba-pair{ grid-template-columns:1fr 1fr; }
+}
+.ba-item{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+.ba-item img{
+  width:100%;
+  height:auto;
+  border-radius:10px;
+  display:block;
+}
+.ba-label{
+  font-size:13px;
+  font-weight:700;
+}
+.ba-label.before{color:#c0392b;}
+.ba-label.after{color:#0f7a37;}
 
 /* REVIEWS */
 .review-slider{
@@ -108,7 +132,7 @@ body{
   font-size:15px;
 }
 .review-stars{font-size:14px;color:var(--green);margin-bottom:6px;}
-.review-name{margin-top:6px;font-size:13px;opacity:.8;}
+.review-name{font-size:13px;font-weight:600;color:#555;margin-top:4px;}
 
 /* FOOTER */
 .site-footer{
@@ -240,32 +264,68 @@ body{
   </div>
 </section>
 
-/* BEFORE & AFTER — Perfect mobile sizing */
-#gallery .ba-slide {
-  width: 100%;
-  max-width: 450px;     /* keeps width sensible on iPad/iPhone */
-  margin: 0 auto;
-  border: 3px solid #fff;
-  border-radius: 14px;
-  overflow: hidden;
-  background: #fff;
-}
+<!-- BEFORE & AFTER (Slider, premium layout) -->
+<section id="gallery" class="section">
+  <div class="container">
+    <h2>Before & After</h2>
 
-#gallery .ba-slide img {
-  width: 100%;
-  height: 220px;        /* adjust height here */
-  object-fit: cover;    /* neat crop, no distortion */
-  display: block;
-}
+    <div class="ba-slider">
 
-#gallery .ba-label {
-  text-align: center;
-  background: #0f7a37;
-  color: white;
-  padding: 6px 0;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-}
+      <div class="ba-slide">
+        <div class="ba-pair">
+          <div class="ba-item">
+            <div class="ba-label before">Before</div>
+            <img src="before1.jpg" alt="Before bin clean 1">
+          </div>
+          <div class="ba-item">
+            <div class="ba-label after">After</div>
+            <img src="after1.jpg" alt="After bin clean 1">
+          </div>
+        </div>
+      </div>
+
+      <div class="ba-slide">
+        <div class="ba-pair">
+          <div class="ba-item">
+            <div class="ba-label before">Before</div>
+            <img src="before2.jpg" alt="Before bin clean 2">
+          </div>
+          <div class="ba-item">
+            <div class="ba-label after">After</div>
+            <img src="after2.jpg" alt="After bin clean 2">
+          </div>
+        </div>
+      </div>
+
+      <div class="ba-slide">
+        <div class="ba-pair">
+          <div class="ba-item">
+            <div class="ba-label before">Before</div>
+            <img src="before3.jpg" alt="Before bin clean 3">
+          </div>
+          <div class="ba-item">
+            <div class="ba-label after">After</div>
+            <img src="after3.jpg" alt="After bin clean 3">
+          </div>
+        </div>
+      </div>
+
+      <div class="ba-slide">
+        <div class="ba-pair">
+          <div class="ba-item">
+            <div class="ba-label before">Before</div>
+            <img src="before4.jpg" alt="Before bin clean 4">
+          </div>
+          <div class="ba-item">
+            <div class="ba-label after">After</div>
+            <img src="after4.jpg" alt="After bin clean 4">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 
 <!-- REVIEWS (Slider Version) -->
 <section id="reviews" class="section section--tint">

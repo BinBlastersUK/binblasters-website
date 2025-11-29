@@ -70,37 +70,31 @@ body{
 .price{font-size:32px;font-weight:900;color:var(--green);}
 .small{font-size:13px;opacity:.7}
 
-<!-- BEFORE & AFTER SLIDER -->
-<section id="gallery" class="section">
-  <div class="container">
-    <h2>Before & After</h2>
+/* BEFORE & AFTER SLIDER */
+.ba-slider{
+  display:flex;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  gap:20px;
+  padding:10px 0 4px;
+}
+.ba-slide{
+  flex:0 0 85%;
+  background:#fff;
+  border-radius:12px;
+  padding:10px;
+  box-shadow:0 4px 14px #0002;
+  scroll-snap-align:center;
+}
+.ba-slide img{
+  width:100%;
+  height:260px;        /* controls height on mobile & tablet */
+  object-fit:cover;    /* no distortion */
+  display:block;
+  border-radius:10px;
+  margin-bottom:10px;
+}
 
-    <div class="ba-slider">
-
-      <div class="ba-slide">
-        <img src="before1.jpg" alt="">
-        <img src="after1.jpg" alt="">
-      </div>
-
-      <div class="ba-slide">
-        <img src="before2.jpg" alt="">
-        <img src="after2.jpg" alt="">
-      </div>
-
-      <div class="ba-slide">
-        <img src="before3.jpg" alt="">
-        <img src="after3.jpg" alt="">
-      </div>
-
-      <div class="ba-slide">
-        <img src="before4.jpg" alt="">
-        <img src="after4.jpg" alt="">
-      </div>
-
-    </div>
-  </div>
-</section>
-  
 /* REVIEWS */
 .review-slider{
   display:flex;overflow-x:auto;scroll-snap-type:x mandatory;
@@ -113,7 +107,8 @@ body{
   box-shadow:0 4px 14px #0002;
   font-size:15px;
 }
-.review strong{font-size:14px;color:var(--green);display:block;margin-bottom:6px}
+.review-stars{font-size:14px;color:var(--green);margin-bottom:6px;}
+.review-name{margin-top:6px;font-size:13px;opacity:.8;}
 
 /* FOOTER */
 .site-footer{
@@ -153,8 +148,9 @@ body{
       Fresh, Sanitised Bins — Without the Hassle
     </h1>
 
-    <p style="max-width:650px;margin:0 auto 30px;font-size:18px;">
-      Dumfries reliable bin cleaning service. Fast booking • No contracts • Fully sanitised every clean.
+    <p style="max-width:650px; margin:0 auto 30px; font-size:18px;">
+      Dumfries reliable bin cleaning service. Book your clean in under 30 seconds.
+      Deep clean • Disinfect • Deodorise • No contracts • Local and trusted.
     </p>
 
     <a class="button button--primary" href="https://forms.gle/BBQg2sqG7HpEkKCd9" target="_blank" style="font-size:18px;">
@@ -244,32 +240,37 @@ body{
   </div>
 </section>
 
-/* BEFORE & AFTER SLIDER */
-.ba-slider{
-  display:flex;
-  overflow-x:auto;
-  scroll-snap-type:x mandatory;
-  gap:20px;
-  padding-bottom:10px;
-}
+<!-- BEFORE & AFTER SLIDER -->
+<section id="gallery" class="section">
+  <div class="container">
+    <h2>Before & After</h2>
 
-.ba-slide{
-  flex:0 0 85%;
-  background:#fff;
-  border-radius:12px;
-  padding:10px;
-  box-shadow:0 4px 14px #0002;
-  scroll-snap-align:center;
-}
+    <div class="ba-slider">
 
-.ba-slide img{
-  width:100%;
-  height:260px;           /* Adjust height here */
-  object-fit:cover;       /* Prevents stretching */
-  display:block;
-  border-radius:10px;
-  margin-bottom:10px;
-}
+      <div class="ba-slide">
+        <img src="before1.jpg" alt="Bin before cleaning">
+        <img src="after1.jpg" alt="Bin after cleaning">
+      </div>
+
+      <div class="ba-slide">
+        <img src="before2.jpg" alt="Bin before cleaning">
+        <img src="after2.jpg" alt="Bin after cleaning">
+      </div>
+
+      <div class="ba-slide">
+        <img src="before3.jpg" alt="Bin before cleaning">
+        <img src="after3.jpg" alt="Bin after cleaning">
+      </div>
+
+      <div class="ba-slide">
+        <img src="before4.jpg" alt="Bin before cleaning">
+        <img src="after4.jpg" alt="Bin after cleaning">
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- REVIEWS (Slider Version) -->
 <section id="reviews" class="section section--tint">
   <div class="container">

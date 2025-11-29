@@ -243,36 +243,14 @@ body{
   </div>
 </section>
 
-<!-- BEFORE & AFTER SLIDER -->
-<section id="gallery" class="section">
-  <div class="container">
-    <h2>Before & After</h2>
-
-    <div class="ba-slider">
-
-      <div class="ba-slide">
-        <img src="before1.jpg" alt="">
-        <img src="after1.jpg" alt="">
-      </div>
-
-      <div class="ba-slide">
-        <img src="before2.jpg" alt="">
-        <img src="after2.jpg" alt="">
-      </div>
-
-      <div class="ba-slide">
-        <img src="before3.jpg" alt="">
-        <img src="after3.jpg" alt="">
-      </div>
-
-      <div class="ba-slide">
-        <img src="before4.jpg" alt="">
-        <img src="after4.jpg" alt="">
-      </div>
-
-    </div>
-  </div>
-</section>
+/* BEFORE & AFTER SLIDER — FIXED IMAGE SIZE */
+.ba-slide img{
+  width:100%;
+  height:280px;      /* controls how tall the images appear */
+  object-fit:cover;  /* keeps them neat and cropped • no distortion */
+  display:block;
+  border-bottom:2px solid #eee;
+}
 
 <!-- REVIEWS (Slider Version) -->
 <section id="reviews" class="section section--tint">

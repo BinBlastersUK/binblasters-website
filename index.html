@@ -70,22 +70,36 @@ body{
 .price{font-size:32px;font-weight:900;color:var(--green);}
 .small{font-size:13px;opacity:.7}
 
-/* BEFORE & AFTER */
-.ba-grid{
-  display:grid;gap:40px;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  margin-top:20px;
-}
-.ba-pair{display:flex;flex-direction:column;gap:14px;}
-.ba-img{
-  background:#fff;border-radius:14px;
-  overflow:hidden;
-  box-shadow:0 4px 12px rgba(0,0,0,0.15);
-}
-.ba-img img{
-  width:100%;height:auto;display:block;
-}
+<!-- BEFORE & AFTER SLIDER -->
+<section id="gallery" class="section">
+  <div class="container">
+    <h2>Before & After</h2>
 
+    <div class="ba-slider">
+
+      <div class="ba-slide">
+        <img src="before1.jpg" alt="">
+        <img src="after1.jpg" alt="">
+      </div>
+
+      <div class="ba-slide">
+        <img src="before2.jpg" alt="">
+        <img src="after2.jpg" alt="">
+      </div>
+
+      <div class="ba-slide">
+        <img src="before3.jpg" alt="">
+        <img src="after3.jpg" alt="">
+      </div>
+
+      <div class="ba-slide">
+        <img src="before4.jpg" alt="">
+        <img src="after4.jpg" alt="">
+      </div>
+
+    </div>
+  </div>
+</section>
 /* REVIEWS */
 .review-slider{
   display:flex;overflow-x:auto;scroll-snap-type:x mandatory;

@@ -1,44 +1,389 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Bin Blasters – Before & After</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Dumfries Bin Blasters — Wheelie Bin Cleaning</title>
+<meta name="description" content="Wheelie bin cleaning in Dumfries. Deep clean, disinfect & deodorise — domestic, recycling & food caddies. Reliable, affordable, eco-friendly.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
 <style>
-body { background:#000; font-family:Arial; color:white; text-align:center; padding:20px; }
-h1 { margin-bottom:30px; }
-.wrap { display:flex; justify-content:center; gap:20px; flex-wrap:wrap; margin-bottom:40px; }
-img { width:45%; max-width:400px; border-radius:8px; border:2px solid #333; }
-.label { width:45%; max-width:400px; text-align:center; margin-bottom:10px; }
+:root{
+  --bg:#ffeb00;
+  --tint:#fff27a;
+  --text:#111827;
+  --green:#fff27a;
+  --green-dark:#0f7a37;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  color:var(--text);
+  background:var(--bg);
+}
+
+.container{max-width:1100px;margin:0 auto;padding:0 20px}
+.center{text-align:center}
+
+/* HEADER */
+.site-header{
+  position:sticky;top:0;
+  background:rgba(255,235,0,.92);
+  border-bottom:2px solid #0002;
+  z-index:10;
+}
+.header-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:10px 0;
+}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800}
+.brand-name{text-decoration:none;color:var(--text)}
+.logo-dot{
+  width:30px;height:30px;border-radius:8px;
+  background:linear-gradient(135deg,var(--green),#4ade80)
+}
+.nav a{margin:0 10px;text-decoration:none;color:var(--text);font-weight:700}
+.button{
+  display:inline-block;padding:12px 18px;border-radius:12px;
+  text-decoration:none;font-weight:900
+}
+.button--primary{
+  background:linear-gradient(90deg,#22c55e,var(--green));
+  color:#000
+}
+
+/* HERO */
+.hero{padding:70px 0; text-align:center}
+
+/* SECTIONS */
+.section{padding:56px 0;border-top:2px solid #0002}
+.section--tint{background:var(--tint)}
+
+/* SERVICES */
+.cards{display:grid;gap:16px}
+@media(min-width:860px){
+  .cards{grid-template-columns:repeat(3,1fr)}
+}
+.card{
+  background:#fff;border-radius:12px;padding:20px;
+  box-shadow:0 6px 16px #0001
+}
+
+/* PRICING */
+.price{
+  font-size:32px;font-weight:900;
+  color:#0F7A37;
+}
+.small{font-size:12px;opacity:.8}
+
+/* BEFORE & AFTER */
+.ba-grid{
+  display:grid;
+  gap:40px;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  margin-top:20px;
+}
+.ba-pair{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+.ba-img{
+  position:relative;
+  background:#fff;
+  border-radius:14px;
+  overflow:hidden;
+  box-shadow:0 4px 12px rgba(0,0,0,0.12);
+}
+.ba-img img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+}
+.badge{
+  position:absolute;
+  top:8px;left:8px;
+  padding:4px 10px;
+  font-size:12px;
+  font-weight:700;
+  color:#fff;
+  border-radius:6px;
+}
+.badge.before{background:#c0392b}
+.badge.after{background:#27ae60}
+
+/* CTA */
+.cta{background:var(--tint);padding:50px 0}
+
+/* FOOTER */
+.site-footer{
+  border-top:2px solid #0002;
+  background:#fff;
+  padding:20px 0;
+  text-align:center;
+  font-weight:600;
+}
 </style>
 </head>
+
 <body>
-<h1>Bin Blasters – Before & After</h1>
 
-<div class="wrap">
- <div class="label">Before</div>
- <div class="label">After</div>
-</div>
-<div class="wrap">
- <img src="before1.jpg">
- <img src="after1.jpg">
-</div>
+<header class="site-header">
+  <div class="container header-row">
+    <div class="brand">
+      <div class="logo-dot"></div>
+      <a href="#home" class="brand-name">Dumfries Bin Blasters</a>
+    </div>
+    <nav class="nav">
+      <a href="#services">Services</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#gallery">Before/After</a>
+      <a href="#areas">Areas</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="button button--primary" href="https://forms.gle/Eshc1qMNP2qPCK3i9" target="_blank">Book a Clean</a>
+  </div>
+</header>
 
-<div class="wrap">
- <div class="label">Before</div>
- <div class="label">After</div>
-</div>
-<div class="wrap">
- <img src="before2.jpg">
- <img src="after2.jpg">
-</div>
+<main id="home">
 
-<div class="wrap">
- <div class="label">Before</div>
- <div class="label">After</div>
-</div>
-<div class="wrap">
- <img src="before3.jpg">
- <img src="after3.jpg">
-</div>
-</body></html>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+
+      <h1 style="font-size:36px; font-weight:900; margin-bottom:15px;">
+        Fresh, Sanitised Bins — Without the Hassle
+      </h1>
+
+      <p style="max-width:640px; margin:0 auto 30px; font-size:18px;">
+        Dumfries’ reliable bin cleaning service. Book your clean in under 30 seconds.
+        Deep clean • Disinfect • Deodorise • No contracts • Local & trusted
+      </p>
+
+      <a class="button button--primary"
+         href="https://forms.gle/Eshc1qMNP2qPCK3i9"
+         target="_blank"
+         style="font-size:18px;">
+        Book Your Clean
+      </a>
+
+      <br><br>
+      <a href="#gallery" style="font-weight:700; color:#0F7A37; text-decoration:underline;">
+        See Before & After
+      </a>
+
+      <br><br>
+      <img src="hero.jpg" alt="Dumfries Bin Blasters Logo"
+           style="max-width:420px; width:100%; margin:0 auto;">
+    </div>
+  </section>
+
+  <!-- TRUST BADGES -->
+  <div style="text-align:center; padding:25px 0; font-weight:700;">
+    🚛 Local • 🧽 Fully Sanitised • 🌸 Optional Scent Boost • ⭐ Trusted Across Dumfries
+  </div>
+
+  <!-- SERVICES -->
+  <section id="services" class="section section--tint">
+    <div class="container">
+      <h2>What we do</h2>
+      <div class="cards">
+
+        <div class="card">
+          <div class="card-icon">🧽</div>
+          <h3>Deep clean</h3>
+          <p>Pressure-wash inside & out, remove grime and residues.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">🦠</div>
+          <h3>Disinfect</h3>
+          <p>Sanitise to reduce bacteria and odours.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">🌸</div>
+          <h3>Deodorise</h3>
+          <p>Finish with a fresh scent on request.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing" class="section">
+    <div class="container">
+      <h2>Simple Pricing</h2>
+      <p class="small">
+        Transparent prices. No hidden fees. No contracts.
+      </p>
+
+      <h3 style="margin-top:40px;">Regular Monthly / Fortnightly Cleans</h3>
+      <p class="small" style="margin-top:-6px;">Best value • Stay fresh all year round</p>
+
+      <div class="cards">
+
+        <div class="card">
+          <h3>Basic Clean</h3>
+          <div class="price">£7</div>
+          <p>Per clean • 1 household bin</p>
+        </div>
+
+        <div class="card">
+          <h3>Combo Clean</h3>
+          <div class="price">£12</div>
+          <p>Per clean • Any 2 household bins</p>
+        </div>
+
+        <div class="card">
+          <h3>Bincare Standard</h3>
+          <div class="price">£20</div>
+          <p>Per month • 3 bins + food caddy</p>
+        </div>
+
+        <div class="card">
+          <h3>Full Bincare</h3>
+          <div class="price">£24</div>
+          <p>Per month • 4 bins (incl. 2 greys) + food caddy</p>
+        </div>
+
+        <div class="card">
+          <h3>Custom / Other</h3>
+          <p>Garden bins • 360L–660L</p>
+          <p>Price on request</p>
+        </div>
+
+      </div>
+
+      <!-- ONE-OFF CLEAN -->
+      <h3 style="margin-top:50px;">One-Off Cleans</h3>
+      <p class="small">Ideal for heavily soiled or overdue bins.</p>
+
+      <div class="cards" style="margin-top:20px;">
+        <div class="card">
+          <h3>One-Off Clean</h3>
+          <div class="price">From £10</div>
+          <ul style="margin:10px 0 0 15px; padding:0;">
+            <li>£10 for 240L bin</li>
+            <li>£15 for 360L bin</li>
+          </ul>
+          <p class="small">Scent add-on +£1 per bin</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- BEFORE & AFTER -->
+  <section id="gallery" class="section">
+    <div class="container">
+      <h2>Before & After</h2>
+
+      <div class="ba-grid">
+
+        <div class="ba-pair">
+          <div class="ba-img">
+            <img src="before1.jpg" alt="Before bin clean">
+            <span class="badge before">Before</span>
+          </div>
+          <div class="ba-img">
+            <img src="after1.jpg" alt="After bin clean">
+            <span class="badge after">After</span>
+          </div>
+        </div>
+
+        <div class="ba-pair">
+          <div class="ba-img">
+            <img src="before2.jpg" alt="Before bin clean">
+            <span class="badge before">Before</span>
+          </div>
+          <div class="ba-img">
+            <img src="after2.jpg" alt="After bin clean">
+            <span class="badge after">After</span>
+          </div>
+        </div>
+
+        <div class="ba-pair">
+          <div class="ba-img">
+            <img src="before3.jpg" alt="Before bin clean">
+            <span class="badge before">Before</span>
+          </div>
+          <div class="ba-img">
+            <img src="after3.jpg" alt="After bin clean">
+            <span class="badge after">After</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- AREAS -->
+  <section id="areas" class="section section--tint">
+    <div class="container">
+      <h3>Areas We Cover</h3>
+      <p>Based in Dumfries and serving:</p>
+
+      <ul>
+        <li>Dumfries town & surrounding areas</li>
+        <li>Locharbriggs, Heathhall & Marchfield</li>
+        <li>Georgetown, Calside & Barnhill</li>
+        <li>Lochside, Lincluden & Summerhill</li>
+        <li>Troqueer, Maxwelltown & Sandside</li>
+        <li>Kingholm Quay, Brooms Road area & Nunholm</li>
+        <li>Collin, Torthorwald & Tinwald</li>
+      </ul>
+
+      <p><strong>Not listed?</strong><br>
+      If your area isn’t shown, just ask — I may still cover it.</p>
+
+      <p class="small">Out-of-area addresses may include a small travel fee.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="section">
+    <div class="container">
+      <h2>FAQ</h2>
+
+      <h3>Do you collect the dirty water?</h3>
+      <p>Yes – where required we collect and dispose of waste water responsibly in line with local guidance.</p>
+
+      <h3>Do you clean inside and outside of the bin?</h3>
+      <p>Yes. We clean inside and outside of the bin as standard, unless access is blocked.</p>
+
+      <h3>Do I need to leave my bin out?</h3>
+      <p>Yes – please leave your bins somewhere we can easily access them on your collection day.</p>
+
+      <h3>When do I pay?</h3>
+      <p>Payment is due on the day of your clean. Full details are confirmed when you book.</p>
+
+      <h3>Can I add a fresh scent?</h3>
+      <p>Yes – scent is an optional add-on when you book, charged per bin.</p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="container center">
+      <h2>Ready to blast those bins?</h2>
+      <p>Click below, pick your bins, and we’ll get you on the next round.</p>
+      <a class="button button--primary" href="https://forms.gle/Eshc1qMNP2qPCK3i9" target="_blank">Book a Clean</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    © 2025 Dumfries Bin Blasters — Dumfries
+  </div>
+</footer>
+
+</body>
+</html>

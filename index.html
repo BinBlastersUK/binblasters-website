@@ -9,135 +9,166 @@
 
 <style>
 /* BRAND COLOURS */
-:root{
+:root {
   --bg:#ffeb00;
   --tint:#fff27a;
   --text:#111827;
   --green:#0f7a37;
 }
 
-*{box-sizing:border-box;}
-body{
+* { box-sizing:border-box; }
+body {
   margin:0;
   font-family:'Inter',sans-serif;
   background:var(--bg);
   color:var(--text);
 }
 
-.container{max-width:1100px;margin:0 auto;padding:0 20px}
-.center{text-align:center}
+.container { max-width:1100px; margin:0 auto; padding:0 20px; }
+.center { text-align:center; }
 
 /* HEADER */
-.site-header{
-  position:sticky;top:0;
+.site-header {
+  position:sticky; top:0;
   background:rgba(255,235,0,0.92);
   border-bottom:2px solid #0002;
   z-index:20;
 }
-.header-row{
-  display:flex;justify-content:space-between;align-items:center;
+.header-row {
+  display:flex; justify-content:space-between; align-items:center;
   padding:12px 0;
 }
-.nav a{
-  margin:0 10px;text-decoration:none;color:var(--text);font-weight:700;
+.nav a {
+  margin:0 10px; text-decoration:none; color:var(--text); font-weight:700;
 }
-.button{
-  display:inline-block;padding:12px 18px;border-radius:12px;
-  font-weight:900;text-decoration:none;
+.button {
+  display:inline-block; padding:12px 18px; border-radius:12px;
+  font-weight:900; text-decoration:none;
 }
-.button--primary{
+.button--primary {
   background:var(--green);
   color:#fff;
 }
 
 /* HERO */
-.hero{padding:60px 0;text-align:center}
-.hero img{max-width:420px;width:90%;margin-top:20px;}
+.hero { padding:60px 0; text-align:center; }
+.hero img {
+  max-width:420px; width:90%; margin-top:20px;
+}
 
 /* SECTIONS */
-.section{padding:56px 0;border-top:2px solid #0002}
-.section--tint{background:var(--tint)}
+.section { padding:56px 0; border-top:2px solid #0002; }
+.section--tint { background:var(--tint); }
 
 /* CARDS */
-.cards{display:grid;gap:18px}
+.cards { display:grid; gap:18px; }
 @media(min-width:860px){ .cards{grid-template-columns:repeat(3,1fr);} }
 
-.card{
-  background:#fff;border-radius:12px;padding:20px;
+.card {
+  background:#fff; border-radius:12px; padding:20px;
   box-shadow:0 6px 16px #0002;
 }
 
-.price{font-size:32px;font-weight:900;color:var(--green);}
-.small{font-size:13px;opacity:.7}
+.price { font-size:32px; font-weight:900; color:var(--green); }
 
-/* BEFORE & AFTER SLIDER */
-.ba-slider{
+/* BEFORE + AFTER SLIDER */
+#gallery .ba-slider {
   display:flex;
   overflow-x:auto;
   scroll-snap-type:x mandatory;
-  gap:20px;
-  padding:14px 0 6px;
+  gap:24px;
+  padding:20px 0;
 }
-.ba-slide{
+
+#gallery .ba-slide {
   scroll-snap-align:center;
   flex:0 0 100%;
   display:flex;
   justify-content:center;
 }
-@media (min-width:768px){
-  .ba-slide{ flex:0 0 70%; }
+
+@media(min-width:768px){
+  #gallery .ba-slide { flex:0 0 70%; }
 }
-.ba-pair{
+
+.ba-pair {
   width:100%;
   max-width:520px;
   background:#fff;
   border-radius:16px;
-  box-shadow:0 6px 18px rgba(0,0,0,0.18);
+  box-shadow:0 6px 16px rgba(0,0,0,0.15);
   padding:14px;
   display:grid;
   grid-template-columns:1fr;
-  gap:12px;
+  gap:14px;
 }
-@media (min-width:768px){
-  .ba-pair{ grid-template-columns:1fr 1fr; }
+
+.ba-img {
+  position:relative;
+  border-radius:12px;
+  overflow:hidden;
 }
-.ba-item{
-  display:flex;
-  flex-direction:column;
-  gap:6px;
-}
-.ba-item img{
+
+.ba-img img {
   width:100%;
-  height:auto;
-  border-radius:10px;
+  height:260px;
+  object-fit:cover;
   display:block;
 }
-.ba-label{
+
+@media(min-width:768px){
+  .ba-img img { height:320px; }
+}
+
+.ba-label {
+  position:absolute;
+  top:10px; left:10px;
+  background:rgba(0,0,0,0.7);
+  color:#fff;
+  padding:4px 10px;
+  border-radius:6px;
   font-size:13px;
   font-weight:700;
 }
-.ba-label.before{color:#c0392b;}
-.ba-label.after{color:#0f7a37;}
 
 /* REVIEWS */
-.review-slider{
-  display:flex;overflow-x:auto;scroll-snap-type:x mandatory;
-  gap:20px;padding-bottom:10px;
+.review-slider {
+  display:flex;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  gap:20px;
+  padding-bottom:10px;
 }
-.review{
+
+.review {
   scroll-snap-align:start;
-  min-width:260px;max-width:260px;
-  background:#fff;padding:18px;border-radius:12px;
+  min-width:260px;
+  max-width:260px;
+  background:#fff;
+  padding:18px;
+  border-radius:12px;
   box-shadow:0 4px 14px #0002;
   font-size:15px;
 }
-.review-stars{font-size:14px;color:var(--green);margin-bottom:6px;}
-.review-name{font-size:13px;font-weight:600;color:#555;margin-top:4px;}
+
+.review-stars {
+  color:var(--green);
+  font-weight:900;
+  margin-bottom:6px;
+}
+.review-name {
+  margin-top:6px;
+  font-weight:700;
+  opacity:.8;
+}
 
 /* FOOTER */
-.site-footer{
-  background:#fff;border-top:2px solid #0002;
-  text-align:center;padding:20px 0;font-weight:600;
+.site-footer {
+  background:#fff;
+  border-top:2px solid #0002;
+  text-align:center;
+  padding:20px 0;
+  font-weight:600;
 }
 </style>
 </head>
@@ -172,9 +203,9 @@ body{
       Fresh, Sanitised Bins — Without the Hassle
     </h1>
 
-    <p style="max-width:650px; margin:0 auto 30px; font-size:18px;">
-      Dumfries reliable bin cleaning service. Book your clean in under 30 seconds.
-      Deep clean • Disinfect • Deodorise • No contracts • Local and trusted.
+    <p style="max-width:650px;margin:0 auto 30px;font-size:18px;">
+      Dumfries reliable bin cleaning service. Book your clean in under 30 seconds.<br>
+      Deep clean • Disinfect • Deodorise • No contracts • Local and trusted
     </p>
 
     <a class="button button--primary" href="https://forms.gle/BBQg2sqG7HpEkKCd9" target="_blank" style="font-size:18px;">
@@ -192,22 +223,9 @@ body{
     <h2>What We Do</h2>
 
     <div class="cards">
-
-      <div class="card">
-        <h3>🧽 Deep Clean</h3>
-        <p>Pressure wash inside & out. Removes grime & residue.</p>
-      </div>
-
-      <div class="card">
-        <h3>🦠 Disinfect</h3>
-        <p>Kills bacteria and reduces smells.</p>
-      </div>
-
-      <div class="card">
-        <h3>🌸 Deodorise</h3>
-        <p>Fresh scent available as an optional add-on.</p>
-      </div>
-
+      <div class="card"><h3>🧽 Deep Clean</h3><p>Pressure wash inside & out.</p></div>
+      <div class="card"><h3>🦠 Disinfect</h3><p>Kills bacteria & reduces smells.</p></div>
+      <div class="card"><h3>🌸 Deodorise</h3><p>Fresh scent add-on available.</p></div>
     </div>
   </div>
 </section>
@@ -220,35 +238,12 @@ body{
     <h3 style="margin-top:35px;">Monthly / Fortnightly</h3>
     <div class="cards">
 
-      <div class="card">
-        <h3>Basic Clean</h3>
-        <div class="price">£7</div>
-        <p>1 bin • per clean</p>
-      </div>
+      <div class="card"><h3>Basic Clean</h3><div class="price">£7</div><p>1 bin</p></div>
+      <div class="card"><h3>Combo Clean</h3><div class="price">£12</div><p>Any 2 bins</p></div>
+      <div class="card"><h3>Bincare Standard</h3><div class="price">£20</div><p>3 bins + caddy</p></div>
+      <div class="card"><h3>Full Bincare</h3><div class="price">£24</div><p>4 bins + caddy</p></div>
+      <div class="card"><h3>360L–660L Bins</h3><p>Price on request</p></div>
 
-      <div class="card">
-        <h3>Combo Clean</h3>
-        <div class="price">£12</div>
-        <p>Any 2 bins • per clean</p>
-      </div>
-
-      <div class="card">
-        <h3>Bincare Standard</h3>
-        <div class="price">£20</div>
-        <p>3 bins + food caddy • per month</p>
-      </div>
-
-      <div class="card">
-        <h3>Full Bincare</h3>
-        <div class="price">£24</div>
-        <p>4 bins (inc. 2 greys) + caddy • per month</p>
-      </div>
-
-      <div class="card">
-        <h3>Custom / Garden Bins</h3>
-        <p>360L–660L bins</p>
-        <p>Price on request</p>
-      </div>
     </div>
 
     <h3 style="margin-top:45px;">One-Off Cleans</h3>
@@ -258,64 +253,58 @@ body{
         <div class="price">From £10</div>
         <p>£10 — 240L</p>
         <p>£15 — 360L</p>
-        <p class="small">+£1 optional scent</p>
+        <p style="opacity:.7;">+£1 optional scent</p>
       </div>
     </div>
   </div>
 </section>
 
-  /* BEFORE & AFTER — Clean, safe mobile/desktop sizing */
-.ba-pair img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  display: block;
-}
+<!-- BEFORE + AFTER SLIDER -->
+<section id="gallery" class="section">
+  <div class="container">
+    <h2>Before & After</h2>
 
-.ba-slider {
-  display: flex;
-  overflow-x: auto;
-  gap: 20px;
-  scroll-snap-type: x mandatory;
-  padding: 20px 0;
-}
+    <div class="ba-slider">
 
-.ba-slide {
-  scroll-snap-align: center;
-  flex: 0 0 100%;
-  display: flex;
-  justify-content: center;
-}
+      <div class="ba-slide">
+        <div class="ba-pair">
+          <div class="ba-img">
+            <div class="ba-label">Before</div>
+            <img src="before1.jpg">
+          </div>
+          <div class="ba-img">
+            <div class="ba-label">After</div>
+            <img src="after1.jpg">
+          </div>
+        </div>
+      </div>
 
-@media(min-width: 768px) {
-  .ba-slide { flex: 0 0 70%; }
-}
+      <div class="ba-slide">
+        <div class="ba-pair">
+          <div class="ba-img"><div class="ba-label">Before</div><img src="before2.jpg"></div>
+          <div class="ba-img"><div class="ba-label">After</div><img src="after2.jpg"></div>
+        </div>
+      </div>
 
-.ba-pair {
-  max-width: 520px;
-  width: 100%;
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-  padding: 12px;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 12px;
-}
+      <div class="ba-slide">
+        <div class="ba-pair">
+          <div class="ba-img"><div class="ba-label">Before</div><img src="before3.jpg"></div>
+          <div class="ba-img"><div class="ba-label">After</div><img src="after3.jpg"></div>
+        </div>
+      </div>
 
-@media(min-width: 768px) {
-  .ba-pair { grid-template-columns: 1fr 1fr; }
-}
+      <div class="ba-slide">
+        <div class="ba-pair">
+          <div class="ba-img"><div class="ba-label">Before</div><img src="before4.jpg"></div>
+          <div class="ba-img"><div class="ba-label">After</div><img src="after4.jpg"></div>
+        </div>
+      </div>
 
-.ba-label {
-  font-size: 14px;
-  font-weight: 700;
-}
+    </div>
+  </div>
+</section>
 
-.ba-label.before { color: #c0392b; }
-.ba-label.after { color: #0f7a37; }
-
-<!-- REVIEWS (Slider Version) -->
+<!-- REVIEWS -->
 <section id="reviews" class="section section--tint">
   <div class="container">
     <h2>Customer Reviews</h2>
@@ -330,7 +319,7 @@ body{
 
       <div class="review">
         <div class="review-stars">★★★★★</div>
-        <p>“Thanks for cleaning my bins, I’ve been recommending you to everyone.”</p>
+        <p>“Thanks for cleaning my bins, I've been recommending you to everyone.”</p>
         <div class="review-name">— Tammy K.</div>
       </div>
 
@@ -390,10 +379,10 @@ body{
     <p>Yes — where required we collect and dispose responsibly.</p>
 
     <h3>Do you clean inside and outside?</h3>
-    <p>Yes, every bin gets a full internal & external clean.</p>
+    <p>Yes — internal and external cleaning is standard.</p>
 
     <h3>Do I need to leave the bin out?</h3>
-    <p>Yes, please leave it somewhere accessible after collection.</p>
+    <p>Yes — please leave it somewhere accessible after collection.</p>
 
     <h3>When do I pay?</h3>
     <p>Payment is due on the day of your clean.</p>

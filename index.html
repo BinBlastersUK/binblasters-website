@@ -30,7 +30,7 @@ body{
 /* HEADER */
 .site-header{
   position:sticky;top:0;
-  background:rgba(255,235,0,0.92);
+  background:rgba(255,235,0,0.95);
   border-bottom:2px solid #0002;
   z-index:20;
 }
@@ -52,18 +52,30 @@ body{
 
 /* HERO */
 .hero{
-  padding:60px 0;
+  padding:60px 0 40px;
   text-align:center;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.88), rgba(255,255,255,0.92)),
-    url('hero-bg.jpg');   /* optional background image you can upload */
-  background-size:cover;
-  background-position:center;
+  background:var(--bg);
+}
+.hero h1{
+  font-size:36px;
+  font-weight:900;
+  margin-bottom:15px;
+}
+.hero-lead{
+  max-width:650px;
+  margin:0 auto 20px;
+  font-size:18px;
 }
 .hero img{
   max-width:420px;
   width:90%;
-  margin-top:20px;
+  margin:26px auto 10px;
+  display:block;
+}
+.hero-icons{
+  max-width:650px;
+  margin:8px auto 0;
+  font-size:15px;
 }
 
 /* SECTIONS */
@@ -82,41 +94,69 @@ body{
 .price{font-size:32px;font-weight:900;color:var(--green);}
 .small{font-size:13px;opacity:.7}
 
-/* WHY CHOOSE US */
-.why-grid{
-  display:grid;
-  gap:18px;
+/* BEFORE & AFTER SLIDER */
+.ba-wrapper{
+  overflow:hidden;
 }
-@media(min-width:860px){
-  .why-grid{grid-template-columns:repeat(3,1fr);}
+.ba-slider{
+  display:flex;
+  overflow-x:auto;
+  gap:20px;
+  scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;
+  padding-bottom:10px;
 }
-.why-card{
+.ba-slide{
+  flex:0 0 100%;
+  max-width:520px;
+  margin:0 auto;
+  scroll-snap-align:center;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+.ba-frame{
   background:#fff;
-  border-radius:12px;
-  padding:20px;
-  box-shadow:0 4px 12px #0002;
+  border-radius:18px;
+  box-shadow:0 6px 18px rgba(0,0,0,0.15);
+  padding:12px 12px 16px;
+  position:relative;
+}
+.ba-frame img{
+  width:100%;
+  height:auto;
+  display:block;
+  border-radius:14px;
+}
+.ba-label{
+  position:absolute;
+  left:18px;
+  top:12px;
+  padding:4px 12px;
+  border-radius:999px;
+  font-size:13px;
+  font-weight:700;
+  color:#fff;
+}
+.ba-label.before{background:#c0392b;}
+.ba-label.after{background:#0f7a37;}
+.ba-hint{
+  text-align:center;
+  font-size:13px;
+  opacity:.75;
+  margin-top:10px;
 }
 
-/* BEFORE & AFTER GRID */
-.ba-grid{
-  display:grid;gap:40px;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  margin-top:20px;
-}
-.ba-pair{display:flex;flex-direction:column;gap:14px;}
-.ba-img{
-  background:#fff;border-radius:14px;
-  overflow:hidden;
-  box-shadow:0 4px 12px rgba(0,0,0,0.15);
-}
-.ba-img img{
-  width:100%;height:auto;display:block;
+@media(min-width:900px){
+  .ba-slide{
+    flex:0 0 70%;
+  }
 }
 
 /* REVIEWS */
 .review-slider{
   display:flex;overflow-x:auto;scroll-snap-type:x mandatory;
-  gap:20px;padding-bottom:10px;
+  gap:20px;padding-bottom:10px;-webkit-overflow-scrolling:touch;
 }
 .review{
   scroll-snap-align:start;
@@ -125,61 +165,28 @@ body{
   box-shadow:0 4px 14px #0002;
   font-size:15px;
 }
-.review-stars{
-  font-size:14px;
-  color:var(--green);
-  margin-bottom:6px;
-}
-.review-name{
-  margin-top:8px;
-  font-size:13px;
-  opacity:0.8;
-}
+.review-stars{font-size:14px;color:var(--green);margin-bottom:6px;font-weight:700;}
+.review-name{margin-top:6px;font-size:13px;opacity:.8;}
 
-/* FLOATING WHATSAPP BUTTON */
-.floating-whatsapp{
-  position:fixed;
-  right:18px;
-  bottom:18px;
-  width:56px;
-  height:56px;
-  border-radius:50%;
-  background:var(--green);
-  color:#fff;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-decoration:none;
-  box-shadow:0 6px 18px rgba(0,0,0,0.25);
-  z-index:50;
-}
-.floating-whatsapp span{
-  font-size:26px;
-}
+/* CTA */
+.cta{padding:40px 0;text-align:center}
 
 /* FOOTER */
 .site-footer{
   background:#fff;border-top:2px solid #0002;
-  text-align:center;padding:20px 0;font-weight:600;
+  text-align:center;padding:18px 0 26px;font-weight:600;
 }
-.footer-social{
-  margin-top:10px;
-  display:flex;
-  justify-content:center;
-  gap:18px;
-  flex-wrap:wrap;
-  font-weight:500;
-}
-.footer-social a{
-  text-decoration:none;
-  color:var(--text);
-  display:inline-flex;
-  align-items:center;
-  gap:6px;
+.footer-links{
+  margin-top:8px;
   font-size:14px;
 }
-.footer-social .icon{
-  font-size:18px;
+.footer-links a{
+  margin:0 6px;
+  text-decoration:none;
+  color:var(--text);
+}
+.footer-links span{
+  opacity:.5;
 }
 </style>
 </head>
@@ -192,7 +199,6 @@ body{
 
     <nav class="nav">
       <a href="#services">Services</a>
-      <a href="#why">Why Us</a>
       <a href="#pricing">Pricing</a>
       <a href="#gallery">Before/After</a>
       <a href="#reviews">Reviews</a>
@@ -211,25 +217,22 @@ body{
 <!-- HERO -->
 <section class="hero">
   <div class="container">
-    <h1 style="font-size:36px;font-weight:900;margin-bottom:15px;">
-      Fresh, Sanitised Bins — Without the Hassle
-    </h1>
+    <h1>Fresh, Sanitised Bins — Without the Hassle</h1>
 
-    <p style="max-width:650px; margin:0 auto 15px; font-size:18px;">
+    <p class="hero-lead">
       Dumfries reliable bin cleaning service. Book your clean in under 30 seconds.
       Deep clean • Disinfect • Deodorise • No contracts • Local and trusted.
-    </p>
-
-    <p style="max-width:650px; margin:0 auto 20px; font-weight:700;">
-      🚛 Local • 🧽 Fully sanitised • 🌸 Optional scent • ⭐ Trusted across Dumfries
     </p>
 
     <a class="button button--primary" href="https://forms.gle/BBQg2sqG7HpEkKCd9" target="_blank" style="font-size:18px;">
       Book Your Clean
     </a>
 
-    <br><br>
     <img src="hero.jpg" alt="Dumfries Bin Blasters Logo">
+
+    <p class="hero-icons">
+      🟩 Local • ✅ Fully sanitised • 🌸 Optional scent • ✨ Trusted across Dumfries
+    </p>
   </div>
 </section>
 
@@ -255,30 +258,6 @@ body{
         <p>Fresh scent available as an optional add-on.</p>
       </div>
 
-    </div>
-  </div>
-</section>
-
-<!-- WHY CHOOSE US -->
-<section id="why" class="section">
-  <div class="container">
-    <h2>Why Choose Bin Blasters?</h2>
-
-    <div class="why-grid">
-      <div class="why-card">
-        <h3>⭐ Local & Trusted</h3>
-        <p>Based in Dumfries with regular happy customers and 5★ feedback.</p>
-      </div>
-
-      <div class="why-card">
-        <h3>🧽 Fully Sanitised</h3>
-        <p>We clean, disinfect and rinse so your bin is fresh, not just rinsed.</p>
-      </div>
-
-      <div class="why-card">
-        <h3>⏱️ Simple, Flexible Booking</h3>
-        <p>Book online in under 30 seconds with monthly, fortnightly or one-off cleans.</p>
-      </div>
     </div>
   </div>
 </section>
@@ -335,38 +314,65 @@ body{
   </div>
 </section>
 
-<!-- BEFORE & AFTER GRID -->
+<!-- BEFORE & AFTER (SLIDER) -->
 <section id="gallery" class="section">
   <div class="container">
     <h2>Before & After</h2>
 
-    <div class="ba-grid">
+    <div class="ba-wrapper">
+      <div class="ba-slider">
 
-      <div class="ba-pair">
-        <div class="ba-img"><img src="before1.jpg" alt="Bin before clean 1"></div>
-        <div class="ba-img"><img src="after1.jpg" alt="Bin after clean 1"></div>
+        <div class="ba-slide">
+          <div class="ba-frame">
+            <div class="ba-label before">Before</div>
+            <img src="ba1_before.jpg" alt="Before clean 1">
+          </div>
+          <div class="ba-frame">
+            <div class="ba-label after">After</div>
+            <img src="ba1_after.jpg" alt="After clean 1">
+          </div>
+        </div>
+
+        <div class="ba-slide">
+          <div class="ba-frame">
+            <div class="ba-label before">Before</div>
+            <img src="ba2_before.jpg" alt="Before clean 2">
+          </div>
+          <div class="ba-frame">
+            <div class="ba-label after">After</div>
+            <img src="ba2_after.jpg" alt="After clean 2">
+          </div>
+        </div>
+
+        <div class="ba-slide">
+          <div class="ba-frame">
+            <div class="ba-label before">Before</div>
+            <img src="ba3_before.jpg" alt="Before clean 3">
+          </div>
+          <div class="ba-frame">
+            <div class="ba-label after">After</div>
+            <img src="ba3_after.jpg" alt="After clean 3">
+          </div>
+        </div>
+
+        <div class="ba-slide">
+          <div class="ba-frame">
+            <div class="ba-label before">Before</div>
+            <img src="ba4_before.jpg" alt="Before clean 4">
+          </div>
+          <div class="ba-frame">
+            <div class="ba-label after">After</div>
+            <img src="ba4_after.jpg" alt="After clean 4">
+          </div>
+        </div>
+
       </div>
-
-      <div class="ba-pair">
-        <div class="ba-img"><img src="before2.jpg" alt="Bin before clean 2"></div>
-        <div class="ba-img"><img src="after2.jpg" alt="Bin after clean 2"></div>
-      </div>
-
-      <div class="ba-pair">
-        <div class="ba-img"><img src="before3.jpg" alt="Bin before clean 3"></div>
-        <div class="ba-img"><img src="after3.jpg" alt="Bin after clean 3"></div>
-      </div>
-
-      <div class="ba-pair">
-        <div class="ba-img"><img src="before4.jpg" alt="Bin before clean 4"></div>
-        <div class="ba-img"><img src="after4.jpg" alt="Bin after clean 4"></div>
-      </div>
-
+      <p class="ba-hint">Swipe left or right to see more cleans.</p>
     </div>
   </div>
 </section>
 
-<!-- REVIEWS (Slider Version) -->
+<!-- REVIEWS -->
 <section id="reviews" class="section section--tint">
   <div class="container">
     <h2>Customer Reviews</h2>
@@ -465,33 +471,18 @@ body{
 
 <footer class="site-footer">
   <div class="container">
-    <div>© 2025 Dumfries Bin Blasters — Dumfries</div>
-
-    <div class="footer-social">
-      <a href="https://www.facebook.com/binblastersuk" target="_blank" rel="noopener">
-        <span class="icon">📘</span><span>Facebook</span>
-      </a>
-      <a href="https://www.tiktok.com/@bin.blastersuk" target="_blank" rel="noopener">
-        <span class="icon">🎵</span><span>TikTok</span>
-      </a>
-      <a href="https://wa.me/447935739514" target="_blank" rel="noopener">
-        <span class="icon">💬</span><span>WhatsApp</span>
-      </a>
-      <a href="mailto:BinBlastersUK@outlook.com">
-        <span class="icon">✉️</span><span>Email</span>
-      </a>
+    © 2025 Dumfries Bin Blasters — Dumfries
+    <div class="footer-links">
+      <a href="https://www.facebook.com/binblastersuk" target="_blank" rel="noopener">📘 Facebook</a>
+      <span>•</span>
+      <a href="https://www.tiktok.com/@bin.blastersuk" target="_blank" rel="noopener">🎵 TikTok</a>
+      <span>•</span>
+      <a href="https://wa.me/447935739514" target="_blank" rel="noopener">💬 WhatsApp</a>
+      <span>•</span>
+      <a href="mailto:BinBlastersUK@outlook.com">✉️ Email</a>
     </div>
   </div>
 </footer>
-
-<!-- FLOATING WHATSAPP BUTTON -->
-<a href="https://wa.me/447935739514"
-   class="floating-whatsapp"
-   aria-label="Chat on WhatsApp"
-   target="_blank"
-   rel="noopener">
-  <span>📲</span>
-</a>
 
 </body>
 </html>

@@ -102,8 +102,8 @@ body{
   padding:10px 4px 5px;
 }
 .ba-pair{
-  flex:0 0 90%;
-  max-width:480px;
+  flex:0 0 85%;
+  max-width:420px;
   scroll-snap-align:center;
   display:flex;
   flex-direction:column;
@@ -137,13 +137,8 @@ body{
 .ba-label--after{background:var(--green);}
 
 @media (min-width:768px){
-  .ba-slider{
-    justify-content:center;
-  }
-  .ba-pair{
-    flex:0 0 45%;
-    max-width:420px;
-  }
+  .ba-slider{justify-content:center;}
+  .ba-pair{flex:0 0 40%;max-width:380px;}
 }
 
 /* REVIEWS */
@@ -195,10 +190,14 @@ body{
 
 <header class="site-header">
   <div class="container header-row">
-    <div style="font-weight:900;font-size:20px;">Dumfries Bin Blasters</div>
+
+    <div style="font-weight:900;font-size:20px;">
+      Dumfries Bin Blasters
+    </div>
 
     <nav class="nav">
-      <a href="#services">Services<br><span style="font-weight:400;font-size:11px;">FAQ</span></a>
+      <a href="#services">Services</a>
+      <a href="#faq">FAQ</a>
       <a href="#whyus">Why Us</a>
       <a href="#pricing">Pricing</a>
       <a href="#gallery">Before/After</a>
@@ -206,9 +205,12 @@ body{
       <a href="#areas">Areas</a>
     </nav>
 
-    <a class="button button--primary" href="https://forms.gle/BBQg2sqG7HpEkKCd9" target="_blank">
+    <a class="button button--primary"
+       href="https://forms.gle/BBQg2sqG7HpEkKCd9"
+       target="_blank">
       Book a Clean
     </a>
+
   </div>
 </header>
 
@@ -219,12 +221,8 @@ body{
   <div class="container">
     <h1>Fresh, Sanitised Bins — Without the Hassle</h1>
 
-    <p>
-  Dumfries reliable bin cleaning service. Book your clean in under 30 seconds.
-</p>
-<p>
-  Deep clean • Disinfect • Deodorise • No contracts • Local and trusted.
-</p>
+    <p>Dumfries reliable bin cleaning service. Book your clean in under 30 seconds.</p>
+    <p>Deep clean • Disinfect • Deodorise • No contracts • Local and trusted.</p>
 
     <a class="button button--primary" href="https://forms.gle/BBQg2sqG7HpEkKCd9" target="_blank" style="font-size:18px;">
       Book Your Clean
@@ -244,7 +242,6 @@ body{
     <h2>What We Do</h2>
 
     <div class="cards">
-
       <div class="card">
         <h3>🧽 Deep Clean</h3>
         <p>Pressure wash inside &amp; out. Removes grime &amp; residue.</p>
@@ -259,7 +256,6 @@ body{
         <h3>🌸 Deodorise</h3>
         <p>Fresh scent available as an optional add-on.</p>
       </div>
-
     </div>
   </div>
 </section>

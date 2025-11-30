@@ -30,7 +30,7 @@ body{
 /* HEADER */
 .site-header{
   position:sticky;top:0;
-  background:rgba(255,235,0,0.96);
+  background:rgba(255,235,0,0.92);
   border-bottom:2px solid #0002;
   z-index:20;
 }
@@ -40,7 +40,6 @@ body{
 }
 .nav a{
   margin:0 10px;text-decoration:none;color:var(--text);font-weight:700;
-  font-size:14px;
 }
 .button{
   display:inline-block;padding:12px 18px;border-radius:12px;
@@ -52,29 +51,12 @@ body{
 }
 
 /* HERO */
-.hero{
-  padding:56px 0 40px;
-  text-align:center;
-}
-.hero h1{
-  font-size:clamp(30px,4vw,40px);
-  font-weight:900;
-  margin:0 0 15px;
-}
-.hero p{
-  max-width:650px;
-  margin:0 auto 20px;
-  font-size:17px;
-}
-.hero img{
-  max-width:380px;
-  width:80%;
-  display:block;
-  margin:28px auto 14px;
-}
+.hero{padding:60px 0;text-align:center}
+.hero img{max-width:420px;width:90%;margin-top:20px;}
+
 .hero-icons{
-  font-size:14px;
-  margin-top:4px;
+  margin-top:18px;
+  font-size:16px;
 }
 
 /* SECTIONS */
@@ -93,100 +75,38 @@ body{
 .price{font-size:32px;font-weight:900;color:var(--green);}
 .small{font-size:13px;opacity:.7}
 
-/* BEFORE & AFTER – SLIDER WITH LABELS */
-.ba-slider{
-  display:flex;
-  overflow-x:auto;
-  scroll-snap-type:x mandatory;
-  gap:24px;
-  padding:10px 4px 5px;
+/* BEFORE & AFTER GRID */
+.ba-grid{
+  display:grid;gap:40px;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  margin-top:20px;
 }
-.ba-pair{
-  flex:0 0 90%;
-  max-width:480px;
-  scroll-snap-align:center;
-  display:flex;
-  flex-direction:column;
-  gap:14px;
-  margin:0 auto;
+.ba-pair{display:flex;flex-direction:column;gap:14px;}
+.ba-img{
+  background:#fff;border-radius:14px;
+  overflow:hidden;
+  box-shadow:0 4px 12px rgba(0,0,0,0.15);
 }
-.ba-card{
-  background:#fff;
-  border-radius:18px;
-  padding:12px 12px 16px;
-  box-shadow:0 8px 20px rgba(0,0,0,0.18);
-  position:relative;
-}
-.ba-card img{
-  width:100%;
-  max-height:420px;
-  display:block;
-  border-radius:14px;
-  object-fit:cover;
-}
-.ba-label{
-  position:absolute;
-  top:10px;left:16px;
-  padding:6px 14px;
-  border-radius:999px;
-  font-size:13px;
-  font-weight:700;
-  color:#fff;
-}
-.ba-label--before{background:#c0392b;}
-.ba-label--after{background:var(--green);}
-
-@media (min-width:768px){
-  .ba-slider{
-    justify-content:center;
-  }
-  .ba-pair{
-    flex:0 0 45%;
-    max-width:420px;
-  }
+.ba-img img{
+  width:100%;height:auto;display:block;
 }
 
 /* REVIEWS */
-.review-slider{
-  display:flex;overflow-x:auto;scroll-snap-type:x mandatory;
-  gap:20px;padding-bottom:10px;
+.reviews{
+  display:grid;
+  gap:20px;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
 }
 .review-card{
-  scroll-snap-align:start;
-  min-width:260px;max-width:260px;
-  background:#fff;padding:18px;border-radius:12px;
-  box-shadow:0 4px 14px #0002;
-  font-size:15px;
+  background:#fff;padding:20px;border-radius:12px;
+  box-shadow:0 4px 16px #0002;
 }
-.review-stars{font-size:16px;color:var(--green);margin-bottom:6px;}
-.review-name{margin-top:8px;font-weight:700;color:var(--green);}
-
-/* FAQ */
-#faq h3{margin-top:26px;margin-bottom:6px;}
-
-/* SOCIAL LINKS */
-.social-links{
-  margin-top:18px;
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  justify-content:center;
-  font-size:14px;
-}
-.social-links a{
-  text-decoration:none;
-  color:var(--text);
-  background:#fff;
-  padding:6px 12px;
-  border-radius:999px;
-  box-shadow:0 2px 6px #0002;
-}
+.review-stars{color:var(--green);font-weight:900;margin-bottom:6px}
 
 /* FOOTER */
 .site-footer{
   background:#fff;border-top:2px solid #0002;
   text-align:center;padding:20px 0;font-weight:600;
-  font-size:14px;
 }
 </style>
 </head>
@@ -198,12 +118,12 @@ body{
     <div style="font-weight:900;font-size:20px;">Dumfries Bin Blasters</div>
 
     <nav class="nav">
-      <a href="#services">Services<br><span style="font-weight:400;font-size:11px;">FAQ</span></a>
-      <a href="#whyus">Why Us</a>
+      <a href="#services">Services</a>
       <a href="#pricing">Pricing</a>
       <a href="#gallery">Before/After</a>
       <a href="#reviews">Reviews</a>
       <a href="#areas">Areas</a>
+      <a href="#faq">FAQ</a>
     </nav>
 
     <a class="button button--primary" href="https://forms.gle/BBQg2sqG7HpEkKCd9" target="_blank">
@@ -217,23 +137,31 @@ body{
 <!-- HERO -->
 <section class="hero">
   <div class="container">
-    <h1>Fresh, Sanitised Bins — Without the Hassle</h1>
 
-    <p>
-      Dumfries reliable bin cleaning service. Book your clean in under 30
-      seconds. Deep clean • Disinfect • Deodorise • No contracts • Local
-      and trusted.
+    <h1 style="font-size:36px;font-weight:900;margin-bottom:15px;">
+      Fresh, Sanitised Bins — Without the Hassle
+    </h1>
+
+    <!-- OPTION B HERO TEXT -->
+    <p style="max-width:650px;margin:0 auto 15px;font-size:18px;">
+      Dumfries reliable bin cleaning service. Book your clean in under 30 seconds.
+    </p>
+
+    <p style="max-width:650px;margin:0 auto 30px;font-size:18px;">
+      Deep clean • Disinfect • Deodorise • No contracts • Local and trusted.
     </p>
 
     <a class="button button--primary" href="https://forms.gle/BBQg2sqG7HpEkKCd9" target="_blank" style="font-size:18px;">
       Book Your Clean
     </a>
 
+    <br><br>
     <img src="hero.jpg" alt="Dumfries Bin Blasters Logo">
 
     <p class="hero-icons">
-      📍 Local &nbsp;&nbsp; ✅ Fully sanitised &nbsp;&nbsp; 🌸 Optional scent &nbsp;&nbsp; 🚛 Trusted across Dumfries
+      📍 Local &nbsp;&nbsp; ✔️ Fully sanitised &nbsp;&nbsp; 🌸 Optional scent &nbsp;&nbsp; 🚛 Trusted across Dumfries
     </p>
+
   </div>
 </section>
 
@@ -246,7 +174,7 @@ body{
 
       <div class="card">
         <h3>🧽 Deep Clean</h3>
-        <p>Pressure wash inside &amp; out. Removes grime &amp; residue.</p>
+        <p>Pressure wash inside & out. Removes grime & residue.</p>
       </div>
 
       <div class="card">
@@ -259,28 +187,6 @@ body{
         <p>Fresh scent available as an optional add-on.</p>
       </div>
 
-    </div>
-  </div>
-</section>
-
-<!-- WHY US -->
-<section id="whyus" class="section">
-  <div class="container">
-    <h2>Why Choose Bin Blasters?</h2>
-
-    <div class="cards">
-      <div class="card">
-        <h3>🕒 Simple, Flexible Booking</h3>
-        <p>Book online in under 30 seconds with monthly, fortnightly or one-off cleans.</p>
-      </div>
-      <div class="card">
-        <h3>🧴 Fully Sanitised</h3>
-        <p>We clean, disinfect and rinse so your bin is fresh, not just rinsed.</p>
-      </div>
-      <div class="card">
-        <h3>⭐ Local &amp; Trusted</h3>
-        <p>Based in Dumfries with regular happy customers and 5★ feedback.</p>
-      </div>
     </div>
   </div>
 </section>
@@ -337,55 +243,31 @@ body{
   </div>
 </section>
 
-<!-- BEFORE & AFTER – SLIDER -->
+<!-- BEFORE & AFTER -->
 <section id="gallery" class="section">
   <div class="container">
-    <h2>Before &amp; After</h2>
+    <h2>Before & After</h2>
 
-    <div class="ba-slider">
+    <div class="ba-grid">
 
       <div class="ba-pair">
-        <div class="ba-card">
-          <span class="ba-label ba-label--before">Before</span>
-          <img src="ba1_before.jpg" alt="Before Clean 1">
-        </div>
-        <div class="ba-card">
-          <span class="ba-label ba-label--after">After</span>
-          <img src="ba1_after.jpg" alt="After Clean 1">
-        </div>
+        <div class="ba-img"><img src="ba1_before.jpg" alt=""></div>
+        <div class="ba-img"><img src="ba1_after.jpg" alt=""></div>
       </div>
 
       <div class="ba-pair">
-        <div class="ba-card">
-          <span class="ba-label ba-label--before">Before</span>
-          <img src="ba2_before.jpg" alt="Before Clean 2">
-        </div>
-        <div class="ba-card">
-          <span class="ba-label ba-label--after">After</span>
-          <img src="ba2_after.jpg" alt="After Clean 2">
-        </div>
+        <div class="ba-img"><img src="ba2_before.jpg" alt=""></div>
+        <div class="ba-img"><img src="ba2_after.jpg" alt=""></div>
       </div>
 
       <div class="ba-pair">
-        <div class="ba-card">
-          <span class="ba-label ba-label--before">Before</span>
-          <img src="ba3_before.jpg" alt="Before Clean 3">
-        </div>
-        <div class="ba-card">
-          <span class="ba-label ba-label--after">After</span>
-          <img src="ba3_after.jpg" alt="After Clean 3">
-        </div>
+        <div class="ba-img"><img src="ba3_before.jpg" alt=""></div>
+        <div class="ba-img"><img src="ba3_after.jpg" alt=""></div>
       </div>
 
       <div class="ba-pair">
-        <div class="ba-card">
-          <span class="ba-label ba-label--before">Before</span>
-          <img src="ba4_before.jpg" alt="Before Clean 4">
-        </div>
-        <div class="ba-card">
-          <span class="ba-label ba-label--after">After</span>
-          <img src="ba4_after.jpg" alt="After Clean 4">
-        </div>
+        <div class="ba-img"><img src="ba4_before.jpg" alt=""></div>
+        <div class="ba-img"><img src="ba4_after.jpg" alt=""></div>
       </div>
 
     </div>
@@ -397,42 +279,42 @@ body{
   <div class="container">
     <h2>Customer Reviews</h2>
 
-    <div class="review-slider">
+    <div class="reviews">
 
       <div class="review-card">
         <div class="review-stars">★★★★★</div>
         <p>“What a brilliant job, never seen it shine before haha 🤣 see you in 2 weeks.”</p>
-        <div class="review-name">— Leah P.</div>
+        <strong>— Leah P.</strong>
       </div>
 
       <div class="review-card">
         <div class="review-stars">★★★★★</div>
         <p>“Thanks for cleaning my bins, I’ve been recommending you to everyone.”</p>
-        <div class="review-name">— Tammy K.</div>
+        <strong>— Tammy K.</strong>
       </div>
 
       <div class="review-card">
         <div class="review-stars">★★★★★</div>
         <p>“It’s spotless! And smells lovely too!! You’ve done a fantastic job.”</p>
-        <div class="review-name">— Charlotte C.</div>
+        <strong>— Charlotte C.</strong>
       </div>
 
       <div class="review-card">
         <div class="review-stars">★★★★★</div>
         <p>“It’s sparkling! Thank you.”</p>
-        <div class="review-name">— Ben R.</div>
+        <strong>— Ben R.</strong>
       </div>
 
       <div class="review-card">
         <div class="review-stars">★★★★★</div>
         <p>“You done my bin. First class job.”</p>
-        <div class="review-name">— Lynne R.</div>
+        <strong>— Lynne R.</strong>
       </div>
 
       <div class="review-card">
         <div class="review-stars">★★★★★</div>
         <p>“Thanks for doing a great job on my bin :)”</p>
-        <div class="review-name">— Lauren M.</div>
+        <strong>— Lauren M.</strong>
       </div>
 
     </div>
@@ -445,13 +327,13 @@ body{
     <h2>Areas We Cover</h2>
 
     <ul>
-      <li>Dumfries town &amp; surrounding areas</li>
-      <li>Locharbriggs, Heathhall &amp; Marchfield</li>
-      <li>Georgetown, Calside &amp; Barnhill</li>
-      <li>Lochside, Lincluden &amp; Summerhill</li>
-      <li>Troqueer, Maxwelltown &amp; Sandside</li>
-      <li>Kingholm Quay &amp; Nunholm</li>
-      <li>Collin, Torthorwald &amp; Tinwald</li>
+      <li>Dumfries town & surrounding areas</li>
+      <li>Locharbriggs, Heathhall & Marchfield</li>
+      <li>Georgetown, Calside & Barnhill</li>
+      <li>Lochside, Lincluden & Summerhill</li>
+      <li>Troqueer, Maxwelltown & Sandside</li>
+      <li>Kingholm Quay & Nunholm</li>
+      <li>Collin, Torthorwald & Tinwald</li>
     </ul>
 
     <p><strong>Not listed?</strong> Just ask — I may still cover it.</p>
@@ -467,7 +349,7 @@ body{
     <p>Yes — where required we collect and dispose responsibly.</p>
 
     <h3>Do you clean inside and outside?</h3>
-    <p>Yes, every bin gets a full internal &amp; external clean.</p>
+    <p>Yes, every bin gets a full internal & external clean.</p>
 
     <h3>Do I need to leave the bin out?</h3>
     <p>Yes, please leave it somewhere accessible after collection.</p>
@@ -478,27 +360,23 @@ body{
 </section>
 
 <!-- CTA -->
-<section class="section">
+<section class="cta">
   <div class="container center">
     <h2>Ready to book?</h2>
     <a class="button button--primary" href="https://forms.gle/BBQg2sqG7HpEkKCd9" target="_blank">
       Book a Clean
     </a>
-
-    <div class="social-links">
-      <a href="https://www.facebook.com/binblastersuk" target="_blank">📘 Facebook</a>
-      <a href="https://www.tiktok.com/@bin.blastersuk" target="_blank">🎵 TikTok</a>
-      <a href="https://wa.me/447935739514" target="_blank">💬 WhatsApp</a>
-      <a href="mailto:BinBlastersUK@outlook.com">✉️ Email</a>
-    </div>
   </div>
 </section>
-
-</main>
 
 <footer class="site-footer">
   <div class="container">
     © 2025 Dumfries Bin Blasters — Dumfries
+    <br><br>
+    <a href="https://www.facebook.com/binblastersuk" target="_blank">Facebook</a> •
+    <a href="https://www.tiktok.com/@bin.blastersuk" target="_blank">TikTok</a> •
+    <a href="https://wa.me/447935739514" target="_blank">WhatsApp</a> •
+    <a href="mailto:BinBlastersUK@outlook.com">Email</a>
   </div>
 </footer>
 
